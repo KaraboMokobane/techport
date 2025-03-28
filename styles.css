@@ -9,6 +9,7 @@ body {
     color: #333;
     background-color: #f9f9f9;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -329,9 +330,7 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
+
     
     .hero h1 {
         font-size: 2.2rem;
@@ -818,60 +817,81 @@ body {
     }
 }
 
+/* Hamburger Navigation */
 
-
-
-
-
-
-
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #333;
+.desktop-cta {
+    display: block;
 }
 
-/* Show the hamburger menu only on small screens */
+.mobile-cta {
+    display: none;
+}
+
+/* Mobile Navigation */
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 101;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 80px;
+        padding-left: 30px;
+        gap: 1rem;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .mobile-cta {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    .desktop-cta {
+        display: none;
+    }
+
     .hamburger-menu {
         display: block;
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #fff;
-        position: absolute;
-        top: 60px; /* Adjust depending on header height */
-        left: 0;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
-    .nav-links li {
-        margin: 15px 0;
+    body.menu-open {
+        overflow: hidden;
     }
-
-    .nav-links a {
-        font-size: 1.2rem;
-        color: #333;
-        text-decoration: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a:hover {
-        color: #3243e0;
-    }
-}
-
-/* Hamburger menu button hover effect */
-.hamburger-menu:hover {
-    color: #3243e0;
 }
