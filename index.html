@@ -186,11 +186,10 @@ window.addEventListener('resize', checkFade);
 checkFade(); // Initial check
 
 // Handle CTA Button Clicks
-document.querySelectorAll('.cta-button').forEach(button => {
-    button.addEventListener('click', () => {
-        alert('Thank you for your interest! Redirecting you to the next step...');
-        // Redirect to the appropriate page
-        window.location.href = button.closest('a').href;
+// document.querySelectorAll('.cta-button').forEach(button => {
+//     button.addEventListener('click', () => {
+//         alert('Thank you for your interest! Redirecting you to the next step...');
+//         window.location.href = button.closest('a').href;
     });
 });
     </script>
