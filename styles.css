@@ -895,3 +895,42 @@ body {
         overflow: hidden;
     }
 }
+
+/* Our Partners */
+
+.partners-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-right 25s linear infinite;
+}
+
+.carousel-track img {
+  height: 80px;
+  margin: 0 20px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.carousel-track img:hover {
+  filter: grayscale(0%);
+}
+
+/* Animation */
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
